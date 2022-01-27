@@ -5,7 +5,12 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "5b27f866-4837-4cb4-9798-9160c9b94950": {
+      "ProjectGuid": "5b27f866-4837-4cb4-9798-9160c9b94950",
+      "DisplayName": "helloWorld",
+      "ColorIndex": 0
     }
   },
-  "NextColorIndex": 0
+  "NextColorIndex": 1
 }
