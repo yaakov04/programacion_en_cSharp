@@ -12,6 +12,39 @@ namespace CorEscuela.App
                 city: "Monterrey",
                 country: "México"
                 );
+            LoadCourses();
+            LoadStudents();
+            LoadSubjects();
+            LoadGrades();
+        }
+
+        private void LoadGrades()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadSubjects()
+        {
+            foreach (Course course in School.Course)
+            {
+                List<Subject> subjects = new List<Subject>()
+                {
+                    new Subject(){Name="Matemáticas"},
+                    new Subject(){Name="Educación Física"},
+                    new Subject(){Name="Ciencias Naturales"},
+                    new Subject(){Name="Español"},
+                };
+                course.Subjects.AddRange(subjects);
+            }
+        }
+
+        private void LoadStudents()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadCourses()
+        {
             School.Course = new List<Course>()
             {
                 new Course(){name="101", Shift = ShiftTypes.Morning},

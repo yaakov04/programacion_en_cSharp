@@ -2,6 +2,7 @@
 {
     public class School
     {
+        public string UniqueId { get; set; } = Guid.NewGuid().ToString();
         string name;
 
         public string Name
