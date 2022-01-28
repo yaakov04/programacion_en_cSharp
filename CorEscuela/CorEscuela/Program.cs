@@ -54,13 +54,13 @@ namespace CorEscuela
                 new Course(){name="501", Shift = ShiftTypes.Morning},
             };
 
-            school.Course.AddRange(anotherList);
+            //school.Course.AddRange(anotherList);
 
             WriteLine(school);
             PrintCourses(school);
 
-            school.Course.RemoveAll((Course course) => course.name == "202");
-            PrintCourses(school);
+            //school.Course.RemoveAll((Course course) => course.name == "202");
+            //PrintCourses(school);
 
         }
 
