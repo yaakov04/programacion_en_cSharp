@@ -59,10 +59,7 @@ namespace CorEscuela
             WriteLine(school);
             PrintCourses(school);
 
-            school.Course.RemoveAll(delegate (Course course)
-            {
-                return course.name == "202";
-            });
+            school.Course.RemoveAll((Course course) => course.name == "202");
             PrintCourses(school);
 
         }
