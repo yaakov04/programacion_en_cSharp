@@ -1,5 +1,6 @@
 ﻿using CorEscuela.App;
 using CorEscuela.Entities;
+using CorEscuela.Util;
 using System;
 using static System.Console;
 
@@ -11,6 +12,8 @@ namespace CorEscuela
         {
             SchoolEngine engine = new SchoolEngine();
             engine.init();
+            Printer.writeTitle("Administrador de Escuela");
+
             WriteLine(engine.School);
             PrintCourses(engine.School);
         }
@@ -18,9 +21,7 @@ namespace CorEscuela
 
         private static void PrintCourses(School school)
         {
-            WriteLine("\n====================");
-            WriteLine("Cursos de la Escuela");
-            WriteLine("====================");
+            Printer.writeTitle("Cursos de la Escuela");
 
             if (school?.Course != null)
             {
