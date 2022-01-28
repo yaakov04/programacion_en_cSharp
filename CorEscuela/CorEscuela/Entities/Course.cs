@@ -1,6 +1,6 @@
 ﻿namespace CorEscuela.Entities
 {
-    internal class Course
+    public class Course
     {
         public string UniqueId { get; private set; }
         public string name { get; set; }

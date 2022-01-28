@@ -1,6 +1,6 @@
 ﻿namespace CorEscuela.Entities
 {
-    internal class School
+    public class School
     {
         string name;
 
@@ -17,7 +17,7 @@
 
         public List<Course> Course { get; set; }
 
-        public School(string name, int year, SchoolTypes type, string country ="", string city="")
+        public School(string name, int year, SchoolTypes type, string country = "", string city = "")
         {
             this.name = name;
             this.YearCreation = year;
