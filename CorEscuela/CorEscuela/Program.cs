@@ -59,16 +59,14 @@ namespace CorEscuela
             WriteLine(school);
             PrintCourses(school);
 
-            Predicate<Course> miAlgoritmo = Predicado;
-            school.Course.RemoveAll(miAlgoritmo);
+            school.Course.RemoveAll(delegate (Course course)
+            {
+                return course.name == "202";
+            });
             PrintCourses(school);
 
         }
 
-        private static bool Predicado(Course obj)
-        {
-            return obj.name == "202";
-        }
 
         private static void PrintCourses(School school)
         {
