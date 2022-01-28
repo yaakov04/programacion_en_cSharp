@@ -28,17 +28,46 @@ namespace CorEscuela
               {
                   name= "301"
               };
+
+            //////
+              school.Course = new Course[]
+                {
+                    new Course(){name="101"},
+                    new Course(){name="102"},
+                    new Course(){name="103"},
+                };
               */
 
-            school.Course = new Course[]
+            school.Course = new List<Course>()
             {
-                new Course(){name="101"},
-                new Course(){name="102"},
-                new Course(){name="103"},
+                new Course(){name="101", Shift = ShiftTypes.Morning},
+                new Course(){name="202", Shift = ShiftTypes.Morning},
+                new Course(){name="303", Shift = ShiftTypes.Morning},
             };
+
+            school.Course.Add(new Course() { name = "102", Shift = ShiftTypes.Afternoon });
+            school.Course.Add(new Course() { name = "202", Shift = ShiftTypes.Afternoon });
+
+            List<Course> anotherList = new List<Course>()
+            {
+                new Course(){name="401", Shift = ShiftTypes.Morning},
+                new Course(){name="501", Shift = ShiftTypes.Morning},
+            };
+
+            school.Course.AddRange(anotherList);
 
             WriteLine(school);
             PrintCourses(school);
+
+            Predicate<Course> miAlgoritmo = Predicado;
+            school.Course.RemoveAll(miAlgoritmo);
+            PrintCourses(school);
+
+        }
+
+        private static bool Predicado(Course obj)
+        {
+            return obj.name == "202";
         }
 
         private static void PrintCourses(School school)
@@ -49,7 +78,7 @@ namespace CorEscuela
 
             if (school?.Course != null)
             {
-                Course[] courses = school.Course;
+                List<Course> courses = school.Course;
                 foreach (Course course in courses)
                 {
                     WriteLine($"Nombre: {course.name} \nId: {course.UniqueId}\n");
