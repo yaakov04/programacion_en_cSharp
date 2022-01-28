@@ -13,31 +13,7 @@ namespace CorEscuela
                 city:"Monterrey",
                 country: "México"
                 );
-            /*
-              Course[] courses;
-              courses = new Course[3];
-              courses[0] = new Course()
-              {
-                  name = "101"
-              };
-              courses[1] = new Course()
-              {
-                  name = "201"
-              };
-              courses[2] = new Course() 
-              {
-                  name= "301"
-              };
-
-            //////
-              school.Course = new Course[]
-                {
-                    new Course(){name="101"},
-                    new Course(){name="102"},
-                    new Course(){name="103"},
-                };
-              */
-
+           
             school.Course = new List<Course>()
             {
                 new Course(){name="101", Shift = ShiftTypes.Morning},
@@ -54,14 +30,8 @@ namespace CorEscuela
                 new Course(){name="501", Shift = ShiftTypes.Morning},
             };
 
-            //school.Course.AddRange(anotherList);
-
             WriteLine(school);
             PrintCourses(school);
-
-            //school.Course.RemoveAll((Course course) => course.name == "202");
-            //PrintCourses(school);
-
         }
 
 
