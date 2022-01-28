@@ -13,8 +13,14 @@ namespace CorEscuela.App
                 country: "México"
                 );
             LoadCourses();
-            LoadStudents();
             LoadSubjects();
+            /*
+            foreach (Course course in School.Course)
+            {
+                //course.Students = new List<Student>();
+                course.Students.AddRange(GenerateStudents(30));
+            }*/
+
             LoadGrades();
         }
 
@@ -34,13 +40,21 @@ namespace CorEscuela.App
                     new Subject(){Name="Ciencias Naturales"},
                     new Subject(){Name="Español"},
                 };
-                course.Subjects.AddRange(subjects);
+                course.Subjects = subjects;
             }
         }
 
-        private void LoadStudents()
+        private List<Student> GenerateStudents(int number)
         {
-            throw new NotImplementedException();
+            string[] nombre1 = { "Alba", "Felipa", "Eusebio", "Farid", "Donald", "Alvaro", "Nicolás" };
+            string[] apellido1 = { "Ruiz", "Sarmiento", "Uribe", "Maduro", "Trump", "Toledo", "Herrera" };
+            string[] nombre2 = { "Freddy", "Anabel", "Rick", "Murty", "Silvana", "Diomedes", "Nicomedes", "Teodoro" };
+
+            IEnumerable<Student> students = from n1 in nombre1
+                           from n2 in nombre2
+                           from a1 in apellido1
+                           select new Student { Name = $"{n1} {n2} {a1}" };
+            return students.OrderBy((st)=>st.UniqueId).Take(number).ToList();
         }
 
         private void LoadCourses()
@@ -53,6 +67,12 @@ namespace CorEscuela.App
                 new Course(){name="401", Shift = ShiftTypes.Afternoon},
                 new Course(){name="501", Shift = ShiftTypes.Afternoon},
             };
+            Random rnd = new Random();
+            foreach (Course course in School.Course)
+            {
+                int numRnd = rnd.Next(15, 30);
+                course.Students = GenerateStudents(numRnd);
+            }
         }
     }
 }
