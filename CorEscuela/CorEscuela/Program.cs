@@ -10,8 +10,8 @@ namespace helloWorld
             School school = new School("Rosa Leal", 1980);
             school.Country = "Mexico";
             school.City = "Monterrey";
-            //School.schoolTypes = SchoolTypes.Elementary;
-            Console.WriteLine(school.Name);
+            school.SchoolTypes = SchoolTypes.Elementary;
+            Console.WriteLine(school);
         }
     }
 }

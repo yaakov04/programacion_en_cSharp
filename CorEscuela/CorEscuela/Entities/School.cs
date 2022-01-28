@@ -20,5 +20,10 @@
             this.name = name;
             this.YearCreation = year;
         }
+
+        public override string ToString()
+        {
+            return $"Nombre: {name} \nTipo: {SchoolTypes} \nPais: {Country} \nCiudad: {City}";
+        }
     }
 }
