@@ -15,6 +15,8 @@
 
         public SchoolTypes SchoolTypes { get; set; }
 
+        public Course[] Course { get; set; }
+
         public School(string name, int year, SchoolTypes type, string country ="", string city="")
         {
             this.name = name;

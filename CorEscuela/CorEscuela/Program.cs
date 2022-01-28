@@ -1,5 +1,6 @@
 ﻿using CorEscuela.Entities;
 using System;
+using static System.Console;
 
 namespace CorEscuela
 {
@@ -12,34 +13,49 @@ namespace CorEscuela
                 city:"Monterrey",
                 country: "México"
                 );
-          
-            Course[] courses;
-            courses = new Course[3];
-            courses[0] = new Course()
+            /*
+              Course[] courses;
+              courses = new Course[3];
+              courses[0] = new Course()
+              {
+                  name = "101"
+              };
+              courses[1] = new Course()
+              {
+                  name = "201"
+              };
+              courses[2] = new Course() 
+              {
+                  name= "301"
+              };
+              */
+
+            school.Course = new Course[]
             {
-                name = "101"
-            };
-            courses[1] = new Course()
-            {
-                name = "201"
-            };
-            courses[2] = new Course() 
-            {
-                name= "301"
+                new Course(){name="101"},
+                new Course(){name="102"},
+                new Course(){name="103"},
             };
 
-            Console.WriteLine(school);
-            System.Console.WriteLine("===========================");
-            PrintCourses(courses);
+            WriteLine(school);
+            PrintCourses(school);
         }
 
-        private static void PrintCourses(Course[] courses)
+        private static void PrintCourses(School school)
         {
-            Console.WriteLine("Cursos");
-            foreach (Course course in courses)
+            WriteLine("\n====================");
+            WriteLine("Cursos de la Escuela");
+            WriteLine("====================");
+
+            if (school?.Course != null)
             {
-                Console.WriteLine($"Nombre: {course.name} \nId: {course.UniqueId}\n");
+                Course[] courses = school.Course;
+                foreach (Course course in courses)
+                {
+                    WriteLine($"Nombre: {course.name} \nId: {course.UniqueId}\n");
+                }
             }
         }
     }
+
 }
