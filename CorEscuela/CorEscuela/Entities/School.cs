@@ -15,10 +15,18 @@
 
         public SchoolTypes SchoolTypes { get; set; }
 
-        public School(string name, int year)
+        public School(string name, int year, SchoolTypes type, string country ="", string city="")
         {
             this.name = name;
             this.YearCreation = year;
+            this.SchoolTypes = type;
+            this.Country = country;
+            this.City = city;
+            /*
+             (Name, YearCreation) = (name, year);
+             Country = country;
+             City = city;
+             */
         }
 
         public override string ToString()
