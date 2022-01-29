@@ -28,7 +28,7 @@ namespace CorEscuela
                 List<Course> courses = school.Course;
                 foreach (Course course in courses)
                 {
-                    WriteLine($"Nombre: {course.name} \nId: {course.UniqueId}\n");
+                    WriteLine($"Nombre: {course.Name} \nId: {course.UniqueId}\n");
                 }
             }
         }

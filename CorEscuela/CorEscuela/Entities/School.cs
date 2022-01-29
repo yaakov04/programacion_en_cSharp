@@ -1,15 +1,7 @@
 ﻿namespace CorEscuela.Entities
 {
-    public class School
+    public class School: BaseObject
     {
-        public string UniqueId { get; set; } = Guid.NewGuid().ToString();
-        string name;
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value.ToUpper(); }
-        }
         public int YearCreation { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
@@ -20,7 +12,7 @@
 
         public School(string name, int year, SchoolTypes type, string country = "", string city = "")
         {
-            this.name = name;
+            this.Name = name;
             this.YearCreation = year;
             this.SchoolTypes = type;
             this.Country = country;
@@ -29,7 +21,7 @@
 
         public override string ToString()
         {
-            return $"Nombre: {name} \nTipo: {SchoolTypes} \nPais: {Country} \nCiudad: {City}";
+            return $"Nombre: {Name} \nTipo: {SchoolTypes} \nPais: {Country} \nCiudad: {City}";
         }
     }
 }

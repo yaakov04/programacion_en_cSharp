@@ -2,7 +2,7 @@
 
 namespace CorEscuela.App
 {
-    public class SchoolEngine
+    public sealed class SchoolEngine
     {
         public School School { get; set; }
 
@@ -75,11 +75,11 @@ namespace CorEscuela.App
         {
             School.Course = new List<Course>()
             {
-                new Course(){name="101", Shift = ShiftTypes.Morning},
-                new Course(){name="201", Shift = ShiftTypes.Morning},
-                new Course(){name="301", Shift = ShiftTypes.Morning},
-                new Course(){name="401", Shift = ShiftTypes.Afternoon},
-                new Course(){name="501", Shift = ShiftTypes.Afternoon},
+                new Course(){Name="101", Shift = ShiftTypes.Morning},
+                new Course(){Name="201", Shift = ShiftTypes.Morning},
+                new Course(){Name="301", Shift = ShiftTypes.Morning},
+                new Course(){Name="401", Shift = ShiftTypes.Afternoon},
+                new Course(){Name="501", Shift = ShiftTypes.Afternoon},
             };
             Random rnd = new Random();
             foreach (Course course in School.Course)
