@@ -9,5 +9,10 @@ namespace CorEscuela.Entities
 
         public float grade { get; set; }
 
+        public override string ToString()
+        {
+            return $"{grade}, {Student.Name}, {Subject.Name}";
+        }
+
     }
 }

@@ -52,10 +52,13 @@ namespace CorEscuela.App
             foreach (Course course in School.Course)
             {
                 list.AddRange(course.Subjects);
-                list.AddRange(course.Students);
-                foreach (Student student in course.Students)
+                foreach (Subject subject in course.Subjects)
                 {
-                    list.AddRange(student.Grade);
+                    list.AddRange(course.Students);
+                    foreach (Student student in course.Students)
+                    {
+                        list.AddRange(student.Grade);
+                    }
                 }
             }
             return list;
