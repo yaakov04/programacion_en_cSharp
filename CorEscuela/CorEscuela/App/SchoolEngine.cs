@@ -14,19 +14,33 @@ namespace CorEscuela.App
                 );
             LoadCourses();
             LoadSubjects();
-            /*
-            foreach (Course course in School.Course)
-            {
-                //course.Students = new List<Student>();
-                course.Students.AddRange(GenerateStudents(30));
-            }*/
-
             LoadGrades();
         }
 
         private void LoadGrades()
         {
-            throw new NotImplementedException();
+            foreach (Course course in School.Course)
+            {
+                foreach (Subject subject in course.Subjects)
+                {
+                    foreach (Student student in course.Students)
+                    {
+                        Random rnd = new Random(System.Environment.TickCount);
+                        student.Grade = new List<Grade>();
+                        for (int i = 0; i < 5; i++)
+                        {
+                            Grade grade = new Grade()
+                            {
+                                Subject = subject,
+                                Name = $"{student.Name} #{i+1}",
+                                grade = (float)(5*rnd.NextDouble()), 
+                                Student = student,
+                            };
+                            student.Grade.Add(grade);
+                        }
+                    }
+                }
+            }
         }
 
         private void LoadSubjects()

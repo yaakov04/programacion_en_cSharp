@@ -1,7 +1,7 @@
 ﻿
 namespace CorEscuela.Entities
 {
-    internal class Grade
+    public class Grade
     {
         public string UniqueId { get; private set; }
         public string Name { get; set; }

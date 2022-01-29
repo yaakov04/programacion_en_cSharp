@@ -5,6 +5,7 @@ namespace CorEscuela.Entities
     {
         public string UniqueId { get; private set; }
         public string Name { get; set; }
+        public List<Grade> Grade { get; set; }
 
         public Student() => UniqueId = Guid.NewGuid().ToString();
     }
