@@ -27,7 +27,7 @@ namespace CorEscuela.App
                     {
                         Random rnd = new Random(System.Environment.TickCount);
                         student.Grade = new List<Grade>();
-                        for (int i = 0; i < 5; i++)
+                        for (int i = 0; i < 4; i++)
                         {
                             Grade grade = new Grade()
                             {
@@ -43,23 +43,51 @@ namespace CorEscuela.App
             }
         }
 
-        internal List<BaseObject> GetSchoolObjects()
+        internal List<BaseObject> GetSchoolObjects(
+            out int countGrades,
+            out int countStudents,
+            out int countSubjects,
+            out int counteCourses,
+            bool hasGrades=true,
+            bool hasStudents = true,
+            bool hasSubjects = true,
+            bool hasCourses = true
+            )
         {
+            countStudents =  countSubjects = countGrades = 0;
             List<BaseObject> list = new List<BaseObject>(); 
 
             list.Add(School);
-            list.AddRange(School.Course);
+
+            if (hasCourses)
+            {
+                list.AddRange(School.Course);
+            }
+            counteCourses = School.Course.Count;
             foreach (Course course in School.Course)
             {
-                list.AddRange(course.Subjects);
-                foreach (Subject subject in course.Subjects)
+                countStudents += course.Students.Count;
+                countSubjects += course.Subjects.Count;
+                if (hasSubjects)
+                {
+                    list.AddRange(course.Subjects);
+                }
+
+                if (hasStudents)
                 {
                     list.AddRange(course.Students);
+                }
+
+                if (hasGrades)
+                {
                     foreach (Student student in course.Students)
                     {
                         list.AddRange(student.Grade);
+                        countGrades += student.Grade.Count;
                     }
                 }
+                
+                
             }
             return list;
         }
