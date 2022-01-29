@@ -16,6 +16,7 @@ namespace CorEscuela
 
             WriteLine(engine.School);
             PrintCourses(engine.School);
+            List<BaseObject> SchoolObjects = engine.GetSchoolObjects();
         }
 
 

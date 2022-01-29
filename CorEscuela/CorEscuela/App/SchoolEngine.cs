@@ -43,6 +43,24 @@ namespace CorEscuela.App
             }
         }
 
+        internal List<BaseObject> GetSchoolObjects()
+        {
+            List<BaseObject> list = new List<BaseObject>(); 
+
+            list.Add(School);
+            list.AddRange(School.Course);
+            foreach (Course course in School.Course)
+            {
+                list.AddRange(course.Subjects);
+                list.AddRange(course.Students);
+                foreach (Student student in course.Students)
+                {
+                    list.AddRange(student.Grade);
+                }
+            }
+            return list;
+        }
+
         private void LoadSubjects()
         {
             foreach (Course course in School.Course)
