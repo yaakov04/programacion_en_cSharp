@@ -32,8 +32,8 @@ namespace CorEscuela.App
                             Grade grade = new Grade()
                             {
                                 Subject = subject,
-                                Name = $"{student.Name} #{i+1}",
-                                grade = (float)(5*rnd.NextDouble()), 
+                                Name = $"{student.Name} #{i + 1}",
+                                grade = (float)(5 * rnd.NextDouble()),
                                 Student = student,
                             };
                             student.Grade.Add(grade);
@@ -44,18 +44,59 @@ namespace CorEscuela.App
         }
 
         internal List<BaseObject> GetSchoolObjects(
-            out int countGrades,
-            out int countStudents,
-            out int countSubjects,
-            out int countCourses,
-            bool hasGrades=true,
+            bool hasGrades = true,
             bool hasStudents = true,
             bool hasSubjects = true,
             bool hasCourses = true
             )
         {
-            countStudents =  countSubjects = countGrades = 0;
-            List<BaseObject> list = new List<BaseObject>(); 
+            return GetSchoolObjects(out int dummy, out dummy, out dummy, out dummy);
+        }
+
+        internal List<BaseObject> GetSchoolObjects(
+            out int countGrade,
+            bool hasGrades = true,
+            bool hasStudents = true,
+            bool hasSubjects = true,
+            bool hasCourses = true
+            )
+        {
+            return GetSchoolObjects(out countGrade, out int dummy, out dummy, out dummy);
+        }
+        internal List<BaseObject> GetSchoolObjects(
+            out int countGrade, out int countStudents,
+            bool hasGrades = true,
+            bool hasStudents = true,
+            bool hasSubjects = true,
+            bool hasCourses = true
+            )
+        {
+            return GetSchoolObjects(out countGrade, out countStudents, out int dummy, out dummy);
+        }
+        internal List<BaseObject> GetSchoolObjects(
+            out int countGrade, out int countStudents, out int countSubjects,
+            bool hasGrades = true,
+            bool hasStudents = true,
+            bool hasSubjects = true,
+            bool hasCourses = true
+            )
+        {
+            return GetSchoolObjects(out countGrade, out countStudents, out countSubjects, out int dummy);
+        }
+
+        internal List<BaseObject> GetSchoolObjects(
+            out int countGrades,
+            out int countStudents,
+            out int countSubjects,
+            out int countCourses,
+            bool hasGrades = true,
+            bool hasStudents = true,
+            bool hasSubjects = true,
+            bool hasCourses = true
+            )
+        {
+            countStudents = countSubjects = countGrades = 0;
+            List<BaseObject> list = new List<BaseObject>();
 
             list.Add(School);
 
@@ -86,8 +127,8 @@ namespace CorEscuela.App
                         countGrades += student.Grade.Count;
                     }
                 }
-                
-                
+
+
             }
             return list;
         }
@@ -114,10 +155,10 @@ namespace CorEscuela.App
             string[] nombre2 = { "Freddy", "Anabel", "Rick", "Murty", "Silvana", "Diomedes", "Nicomedes", "Teodoro" };
 
             IEnumerable<Student> students = from n1 in nombre1
-                           from n2 in nombre2
-                           from a1 in apellido1
-                           select new Student { Name = $"{n1} {n2} {a1}" };
-            return students.OrderBy((st)=>st.UniqueId).Take(number).ToList();
+                                            from n2 in nombre2
+                                            from a1 in apellido1
+                                            select new Student { Name = $"{n1} {n2} {a1}" };
+            return students.OrderBy((st) => st.UniqueId).Take(number).ToList();
         }
 
         private void LoadCourses()

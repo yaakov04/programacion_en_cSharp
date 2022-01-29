@@ -21,12 +21,7 @@ namespace CorEscuela
             int countStudents = 0;
             int countSubjects =0;
             int countCourses = 0;
-            List<BaseObject> SchoolObjects = engine.GetSchoolObjects(
-                out countGrades,
-                out countStudents,
-                out countSubjects,
-                out countCourses
-                );
+            List<BaseObject> SchoolObjects = engine.GetSchoolObjects();
             WriteLine(SchoolObjects);
         }
 
