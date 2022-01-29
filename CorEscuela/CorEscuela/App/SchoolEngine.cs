@@ -47,7 +47,7 @@ namespace CorEscuela.App
             out int countGrades,
             out int countStudents,
             out int countSubjects,
-            out int counteCourses,
+            out int countCourses,
             bool hasGrades=true,
             bool hasStudents = true,
             bool hasSubjects = true,
@@ -63,7 +63,7 @@ namespace CorEscuela.App
             {
                 list.AddRange(School.Course);
             }
-            counteCourses = School.Course.Count;
+            countCourses = School.Course.Count;
             foreach (Course course in School.Course)
             {
                 countStudents += course.Students.Count;

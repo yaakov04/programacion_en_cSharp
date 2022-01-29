@@ -17,12 +17,17 @@ namespace CorEscuela
             WriteLine(engine.School);
             PrintCourses(engine.School);
             int dummy = 0;
+            int countGrades = 0;
+            int countStudents = 0;
+            int countSubjects =0;
+            int countCourses = 0;
             List<BaseObject> SchoolObjects = engine.GetSchoolObjects(
-                out int countGrades,
-                out int countStudents,
-                out int countSubjects,
-                out int counteCourses
+                out countGrades,
+                out countStudents,
+                out countSubjects,
+                out countCourses
                 );
+            WriteLine(SchoolObjects);
         }
 
 
