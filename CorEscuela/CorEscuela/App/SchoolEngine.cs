@@ -43,7 +43,7 @@ namespace CorEscuela.App
             }
         }
 
-        internal List<BaseObject> GetSchoolObjects(
+        internal IReadOnlyList<BaseObject> GetSchoolObjects(
             bool hasGrades = true,
             bool hasStudents = true,
             bool hasSubjects = true,
@@ -53,7 +53,7 @@ namespace CorEscuela.App
             return GetSchoolObjects(out int dummy, out dummy, out dummy, out dummy);
         }
 
-        internal List<BaseObject> GetSchoolObjects(
+        internal IReadOnlyList<BaseObject> GetSchoolObjects(
             out int countGrade,
             bool hasGrades = true,
             bool hasStudents = true,
@@ -63,7 +63,7 @@ namespace CorEscuela.App
         {
             return GetSchoolObjects(out countGrade, out int dummy, out dummy, out dummy);
         }
-        internal List<BaseObject> GetSchoolObjects(
+        internal IReadOnlyList<BaseObject> GetSchoolObjects(
             out int countGrade, out int countStudents,
             bool hasGrades = true,
             bool hasStudents = true,
@@ -73,7 +73,7 @@ namespace CorEscuela.App
         {
             return GetSchoolObjects(out countGrade, out countStudents, out int dummy, out dummy);
         }
-        internal List<BaseObject> GetSchoolObjects(
+        internal IReadOnlyList<BaseObject> GetSchoolObjects(
             out int countGrade, out int countStudents, out int countSubjects,
             bool hasGrades = true,
             bool hasStudents = true,
@@ -84,7 +84,7 @@ namespace CorEscuela.App
             return GetSchoolObjects(out countGrade, out countStudents, out countSubjects, out int dummy);
         }
 
-        internal List<BaseObject> GetSchoolObjects(
+        internal IReadOnlyList<BaseObject> GetSchoolObjects(
             out int countGrades,
             out int countStudents,
             out int countSubjects,
@@ -130,7 +130,7 @@ namespace CorEscuela.App
 
 
             }
-            return list;
+            return list.AsReadOnly();
         }
 
         private void LoadSubjects()
