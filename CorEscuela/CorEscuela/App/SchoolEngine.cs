@@ -27,14 +27,13 @@ namespace CorEscuela.App
                     foreach (Student student in course.Students)
                     {
                         Random rnd = new Random(System.Environment.TickCount);
-                        student.Grade = new List<Grade>();
                         for (int i = 0; i < 4; i++)
                         {
                             Grade grade = new Grade()
                             {
                                 Subject = subject,
                                 Name = $"{student.Name} #{i + 1}",
-                                grade = (float)(5 * rnd.NextDouble()),
+                                grade = MathF.Round((float)(5 * rnd.NextDouble()), 2),
                                 Student = student,
                             };
                             student.Grade.Add(grade);
@@ -44,7 +43,9 @@ namespace CorEscuela.App
             }
         }
 
-        public void printDictionary(Dictionary<DictionaryKey, IEnumerable<BaseObject>> dictionary)
+        public void printDictionary(Dictionary<DictionaryKey, IEnumerable<BaseObject>> dictionary,
+            bool printGrade = false    
+            )
         {
             foreach (KeyValuePair<DictionaryKey, IEnumerable<BaseObject>> element in dictionary)
             {
@@ -52,7 +53,33 @@ namespace CorEscuela.App
 
                 foreach (BaseObject val in element.Value)
                 {
-                    Console.WriteLine(val);
+
+                    switch(element.Key)
+                    {
+                        case DictionaryKey.Grade:
+                            if(printGrade)
+                            {
+                                Console.WriteLine(val);
+                            }
+                        break;
+                        case DictionaryKey.School:
+                            Console.WriteLine(val);
+                        break;
+                        case DictionaryKey.Student:
+                            Console.WriteLine("Alumno: " + val.Name);
+                        break;
+                        case DictionaryKey.Course:
+                            var course = val as Course;
+                            if(course != null)
+                            {
+                                int count = course.Students.Count;
+                                Console.WriteLine("Curso: " + val.Name + ", Cantidad alumnos: "+ count);
+                            }
+                            break;
+                        default:
+                            Console.WriteLine(val);
+                        break;
+                    }
                 }
             }
         }

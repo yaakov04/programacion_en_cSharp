@@ -14,8 +14,8 @@ namespace CorEscuela
             engine.init();
             Printer.writeTitle("Administrador de Escuela");
 
-            WriteLine(engine.School);
-            PrintCourses(engine.School);
+            //WriteLine(engine.School);
+            //PrintCourses(engine.School);
             int dummy = 0;
             int countGrades = 0;
             int countStudents = 0;
@@ -25,7 +25,7 @@ namespace CorEscuela
             //WriteLine(SchoolObjects);
 
             Dictionary<DictionaryKey, IEnumerable<BaseObject>> dictionary = engine.GetObjectsDictionary();
-            engine.printDictionary(dictionary);
+            engine.printDictionary(dictionary, true);
         }
 
 
