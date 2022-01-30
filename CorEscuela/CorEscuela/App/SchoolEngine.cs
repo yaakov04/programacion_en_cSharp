@@ -1,4 +1,5 @@
 ﻿using CorEscuela.Entities;
+using CorEscuela.Util;
 
 namespace CorEscuela.App
 {
@@ -39,6 +40,19 @@ namespace CorEscuela.App
                             student.Grade.Add(grade);
                         }
                     }
+                }
+            }
+        }
+
+        public void printDictionary(Dictionary<DictionaryKey, IEnumerable<BaseObject>> dictionary)
+        {
+            foreach (var element in dictionary)
+            {
+                Printer.writeTitle(element.Key.ToString());
+
+                foreach (var val in element.Value)
+                {
+                    Console.WriteLine(val);
                 }
             }
         }
