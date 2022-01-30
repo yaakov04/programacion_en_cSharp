@@ -21,6 +21,7 @@ namespace CorEscuela
             int countStudents = 0;
             int countSubjects =0;
             int countCourses = 0;
+            engine.GetObjectsDictionary();
             IReadOnlyList<BaseObject> SchoolObjects = engine.GetSchoolObjects();
             WriteLine(SchoolObjects);
         }

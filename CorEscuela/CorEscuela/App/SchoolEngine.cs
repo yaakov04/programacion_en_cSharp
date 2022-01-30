@@ -43,6 +43,15 @@ namespace CorEscuela.App
             }
         }
 
+        public Dictionary<string, IEnumerable<BaseObject>> GetObjectsDictionary()
+        {
+            Dictionary<string, IEnumerable<BaseObject>> dictionary = new Dictionary<string,IEnumerable<BaseObject>>();
+            dictionary.Add("Escuela", new[] { School });
+            dictionary.Add("Courses", School.Course.Cast<BaseObject>());
+
+            return dictionary;
+        }
+
         internal IReadOnlyList<BaseObject> GetSchoolObjects(
             bool hasGrades = true,
             bool hasStudents = true,
