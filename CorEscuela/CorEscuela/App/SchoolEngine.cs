@@ -43,11 +43,12 @@ namespace CorEscuela.App
             }
         }
 
-        public Dictionary<string, IEnumerable<BaseObject>> GetObjectsDictionary()
+        public Dictionary<DictionaryKey, IEnumerable<BaseObject>> GetObjectsDictionary()
         {
-            Dictionary<string, IEnumerable<BaseObject>> dictionary = new Dictionary<string,IEnumerable<BaseObject>>();
-            dictionary.Add("Escuela", new[] { School });
-            dictionary.Add("Courses", School.Course.Cast<BaseObject>());
+            Dictionary<DictionaryKey, IEnumerable<BaseObject>> dictionary = new Dictionary<DictionaryKey,IEnumerable<BaseObject>>();
+
+            dictionary.Add(DictionaryKey.School, new[] { School });
+            dictionary.Add(DictionaryKey.Course, School.Course.Cast<BaseObject>());
 
             return dictionary;
         }
