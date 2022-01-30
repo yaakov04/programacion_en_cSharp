@@ -46,11 +46,11 @@ namespace CorEscuela.App
 
         public void printDictionary(Dictionary<DictionaryKey, IEnumerable<BaseObject>> dictionary)
         {
-            foreach (var element in dictionary)
+            foreach (KeyValuePair<DictionaryKey, IEnumerable<BaseObject>> element in dictionary)
             {
                 Printer.writeTitle(element.Key.ToString());
 
-                foreach (var val in element.Value)
+                foreach (BaseObject val in element.Value)
                 {
                     Console.WriteLine(val);
                 }
