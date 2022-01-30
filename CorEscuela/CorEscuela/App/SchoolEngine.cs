@@ -50,6 +50,24 @@ namespace CorEscuela.App
             dictionary.Add(DictionaryKey.School, new[] { School });
             dictionary.Add(DictionaryKey.Course, School.Course.Cast<BaseObject>());
 
+            List<Grade> listGrade = new List<Grade>();
+            List<Subject> listSubject = new List<Subject>();
+            List<Student> listStudent = new List<Student>();
+            foreach (Course course in School.Course)
+            {
+                listSubject.AddRange(course.Subjects);
+                listStudent.AddRange(course.Students);
+                foreach(Student student in course.Students)
+                {
+                    listGrade.AddRange(student.Grade);
+                }
+            }
+
+            dictionary.Add(DictionaryKey.Grade, listGrade.Cast<BaseObject>());
+            dictionary.Add(DictionaryKey.Subject, listSubject.Cast<BaseObject>());
+            dictionary.Add(DictionaryKey.Student, listStudent.Cast<BaseObject>());
+
+
             return dictionary;
         }
 

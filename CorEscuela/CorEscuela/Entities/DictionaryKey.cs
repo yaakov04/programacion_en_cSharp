@@ -5,6 +5,7 @@
         School,
         Course,
         Student,
-        Subject
+        Subject,
+        Grade
     }
 }
