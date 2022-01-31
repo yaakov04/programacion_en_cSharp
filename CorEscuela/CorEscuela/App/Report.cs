@@ -15,17 +15,15 @@ namespace CorEscuela.App
             this.dictionary = dictionary;
         }
 
-        public IEnumerable<School> GetGrades()
+        public IEnumerable<Grade> GetGrades()
         {
-            //IEnumerable<BaseObject> list = null;
-            bool keyExist  = dictionary.TryGetValue(DictionaryKey.School, out IEnumerable<BaseObject> list);
+            bool keyExist  = dictionary.TryGetValue(DictionaryKey.Grade, out IEnumerable<BaseObject> list);
             if(keyExist)
             {
-                return list.Cast<School>();
+                return list.Cast<Grade>();
             }
 
-            return null;
-            // reportar en el log
+            return new List<Grade>();
         }
     }
 }

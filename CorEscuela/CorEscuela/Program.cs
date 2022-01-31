@@ -18,7 +18,7 @@ namespace CorEscuela
             //engine.printDictionary(dictionary, true);
 
             Report report = new Report(dictionary);
-            report.GetGrades();
+            IEnumerable<Grade> listGrades = report.GetGrades();
         }
 
 
