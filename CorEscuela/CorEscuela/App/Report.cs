@@ -56,15 +56,15 @@ namespace CorEscuela.App
             return dictionary;
         }
 
-        public Dictionary<string, IEnumerable<object>> GetAverageStudentsPerSubject()
+        public Dictionary<string, IEnumerable<StudentAverage>> GetAverageStudentsPerSubject()
         {
-            Dictionary<string, IEnumerable<object>> averageStudentsPerSubject = new Dictionary<string, IEnumerable<object>>();
+            Dictionary<string, IEnumerable<StudentAverage>> averageStudentsPerSubject = new Dictionary<string, IEnumerable<StudentAverage>>();
 
             Dictionary<string, IEnumerable<Grade>> gradesPerSubject = GetGradesPerSubject();
 
             foreach (KeyValuePair<string, IEnumerable<Grade>> subjectWithGrades in gradesPerSubject)
             {
-                var average = from grade in subjectWithGrades.Value
+                IEnumerable<StudentAverage> average = from grade in subjectWithGrades.Value
                               group grade by new
                               {
                                   grade.Student.UniqueId,

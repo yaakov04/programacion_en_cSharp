@@ -4,6 +4,10 @@ namespace CorEscuela.Util
 {
     public static class Printer
     {
+        public static void PressEnter()
+        {
+            Console.WriteLine("Presione ENTER para continuar");
+        }
         public static void DrawLine(int length = 10)
         {
             string line = "".PadLeft(length, '=');
