@@ -64,14 +64,20 @@ namespace CorEscuela.App
 
             foreach (KeyValuePair<string, IEnumerable<Grade>> subjectWithGrades in gradesPerSubject)
             {
-                var dummy = from grade in subjectWithGrades.Value
-                            group grade by grade.Student.UniqueId
+                var average = from grade in subjectWithGrades.Value
+                              group grade by new
+                              {
+                                  grade.Student.UniqueId,
+                                  grade.Student.Name
+                              }
                             into grades
-                            select new
-                            {
-                                StudentId = grades.Key,
-                                Average = grades.Average(gr =>gr.grade)
-                            };
+                              select new StudentAverage
+                              {
+                                  studentId = grades.Key.UniqueId,
+                                  studentName = grades.Key.Name,
+                                  average = grades.Average(gr => gr.grade)
+                              };
+                averageStudentsPerSubject.Add(subjectWithGrades.Key, average);
             }
 
             return averageStudentsPerSubject;
