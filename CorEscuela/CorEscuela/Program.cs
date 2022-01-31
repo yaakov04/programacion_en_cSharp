@@ -19,6 +19,8 @@ namespace CorEscuela
 
             Report report = new Report(dictionary);
             IEnumerable<Grade> listGrades = report.GetGrades();
+            IEnumerable<string> listSubjects = report.GetSubjects();
+            Dictionary<string, IEnumerable<Grade>> listGradesPerSubject = report.GetGradesPerSubject();
         }
 
 
