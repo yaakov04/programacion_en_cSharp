@@ -17,7 +17,8 @@ namespace CorEscuela
             Dictionary<DictionaryKey, IEnumerable<BaseObject>> dictionary = engine.GetObjectsDictionary();
             //engine.printDictionary(dictionary, true);
 
-            Report report = new Report(null);
+            Report report = new Report(dictionary);
+            report.GetGrades();
         }
 
 

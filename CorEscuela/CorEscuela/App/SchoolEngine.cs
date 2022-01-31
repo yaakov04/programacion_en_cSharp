@@ -88,7 +88,7 @@ namespace CorEscuela.App
         {
             Dictionary<DictionaryKey, IEnumerable<BaseObject>> dictionary = new Dictionary<DictionaryKey,IEnumerable<BaseObject>>();
 
-            dictionary.Add(DictionaryKey.School, new[] { School });
+            //dictionary.Add(DictionaryKey.School, new[] { School });
             dictionary.Add(DictionaryKey.Course, School.Course.Cast<BaseObject>());
 
             List<Grade> listGrade = new List<Grade>();
