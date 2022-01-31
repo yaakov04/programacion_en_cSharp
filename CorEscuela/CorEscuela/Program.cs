@@ -21,6 +21,7 @@ namespace CorEscuela
             IEnumerable<Grade> listGrades = report.GetGrades();
             IEnumerable<string> listSubjects = report.GetSubjects();
             Dictionary<string, IEnumerable<Grade>> listGradesPerSubject = report.GetGradesPerSubject();
+            Dictionary<string, IEnumerable<object>> averageStudentsPerSubject = report.GetAverageStudentsPerSubject();
         }
 
 

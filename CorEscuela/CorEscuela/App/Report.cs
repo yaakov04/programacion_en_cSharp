@@ -65,12 +65,12 @@ namespace CorEscuela.App
             foreach (KeyValuePair<string, IEnumerable<Grade>> subjectWithGrades in gradesPerSubject)
             {
                 var dummy = from grade in subjectWithGrades.Value
+                            group grade by grade.Student.UniqueId
+                            into grades
                             select new
                             {
-                                grade.Student.UniqueId,
-                                StudentName = grade.Student.Name,   
-                                GradeName = grade.Name,
-                                grade.grade
+                                StudentId = grades.Key,
+                                Average = grades.Average(gr =>gr.grade)
                             };
             }
 
