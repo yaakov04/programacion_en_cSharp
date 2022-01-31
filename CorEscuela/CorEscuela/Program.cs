@@ -72,6 +72,10 @@ namespace CorEscuela
                     Printer.writeTitle("El valor de la nota no es un número válido");
 
                 }
+                finally
+                {
+                    Printer.writeTitle("FINALLY");
+                }
             }
 
         }
