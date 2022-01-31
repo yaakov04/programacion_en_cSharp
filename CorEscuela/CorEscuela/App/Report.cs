@@ -62,6 +62,18 @@ namespace CorEscuela.App
 
             Dictionary<string, IEnumerable<Grade>> gradesPerSubject = GetGradesPerSubject();
 
+            foreach (KeyValuePair<string, IEnumerable<Grade>> subjectWithGrades in gradesPerSubject)
+            {
+                var dummy = from grade in subjectWithGrades.Value
+                            select new
+                            {
+                                grade.Student.UniqueId,
+                                StudentName = grade.Student.Name,   
+                                GradeName = grade.Name,
+                                grade.grade
+                            };
+            }
+
             return averageStudentsPerSubject;
         }
     }
